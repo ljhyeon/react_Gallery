@@ -27,7 +27,7 @@ const Galleries = () => {
                 <img src={require("./images/nice.jpeg")} alt="니스" 
                 onClick={() => {
                     setSelectedImage({
-                        image: "./images/nice.jpeg",
+                        image: require("./images/nice.jpeg"),
                         title: "니스",
                         date: "240619"
                     });
@@ -38,7 +38,7 @@ const Galleries = () => {
                 <img src={require("./images/porto.jpeg")} alt="포트토" 
                 onClick={() => {
                     setSelectedImage({
-                        image: "./images/porto.jpeg",
+                        image: require("./images/porto.jpeg"),
                         title: "포르투",
                         date: "240525"
                     });

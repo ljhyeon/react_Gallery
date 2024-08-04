@@ -1,0 +1,11 @@
+.image-box {
+    width: auto;
+    height:300px;
+    overflow: hidden;
+    text-align: center;
+}
+
+img {
+    height: 300px;
+    padding: 10px;
+}

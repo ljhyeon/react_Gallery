@@ -1,58 +1,43 @@
-import React, {useState} from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Galleries.css';
-import Info from './Info';
 
-import cascais from './images/cascais.jpeg'
-import nice from './images/nice.jpeg'
-import porto from './images/porto.jpeg'
+import cascais from './images/cascais.jpeg';
+import nice from './images/nice.jpeg';
+import porto from './images/porto.jpeg';
 
 const Galleries = () => {
-    const [selectedImage, setSelectedImage] = useState(null);
+    const navigate = useNavigate();
 
-    if (selectedImage) {
-        return <Info image={selectedImage.image} title={selectedImage.title} date={selectedImage.date} />;
-    }
+    const handleClick = (image, title, date) => {
+        navigate('/info', { state: { image, title, date } });
+    };
 
     return (
         <div>
             <div className="image-box">
                 <img
-                src = {cascais} alt="카스카이스"
-                onClick={() => {
-                    setSelectedImage({
-                        image: cascais,
-                        title: "카스카이스",
-                        date: "240707"
-                    });
-                }}
+                    src={cascais}
+                    alt="카스카이스"
+                    onClick={() => handleClick(cascais, "카스카이스", "240707")}
                 />
             </div>
             <div className="image-box">
                 <img
-                src = {nice} alt="니스" 
-                onClick={() => {
-                    setSelectedImage({
-                        image: nice,
-                        title: "니스",
-                        date: "240619"
-                    });
-                }}
+                    src={nice}
+                    alt="니스"
+                    onClick={() => handleClick(nice, "니스", "240619")}
                 />
             </div>
             <div className="image-box">
-                <img 
-                src={porto} alt="포트토" 
-                onClick={() => {
-                    setSelectedImage({
-                        image: porto,
-                        title: "포르투",
-                        date: "240525"
-                    });
-                }}
+                <img
+                    src={porto}
+                    alt="포르투"
+                    onClick={() => handleClick(porto, "포르투", "240525")}
                 />
             </div>
         </div>
     );
-}
+};
 
 export default Galleries;

@@ -2,6 +2,10 @@ import React, {useState} from 'react';
 import './Galleries.css';
 import Info from './Info';
 
+import cascais from './images/cascais.jpeg'
+import nice from './images/nice.jpeg'
+import porto from './images/porto.jpeg'
+
 const Galleries = () => {
     const [selectedImage, setSelectedImage] = useState(null);
 
@@ -13,10 +17,10 @@ const Galleries = () => {
         <div>
             <div className="image-box">
                 <img
-                src = {require("./images/cascais.jpeg")} alt="카스카이스"
+                src = {cascais} alt="카스카이스"
                 onClick={() => {
                     setSelectedImage({
-                        image: require("./images/cascais.jpeg"),
+                        image: cascais,
                         title: "카스카이스",
                         date: "240707"
                     });
@@ -24,10 +28,11 @@ const Galleries = () => {
                 />
             </div>
             <div className="image-box">
-                <img src={require("./images/nice.jpeg")} alt="니스" 
+                <img
+                src = {nice} alt="니스" 
                 onClick={() => {
                     setSelectedImage({
-                        image: require("./images/nice.jpeg"),
+                        image: nice,
                         title: "니스",
                         date: "240619"
                     });
@@ -35,10 +40,11 @@ const Galleries = () => {
                 />
             </div>
             <div className="image-box">
-                <img src={require("./images/porto.jpeg")} alt="포트토" 
+                <img 
+                src={porto} alt="포트토" 
                 onClick={() => {
                     setSelectedImage({
-                        image: require("./images/porto.jpeg"),
+                        image: porto,
                         title: "포르투",
                         date: "240525"
                     });

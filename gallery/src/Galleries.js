@@ -1,13 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Galleries.css';
-
-import cascais from './images/cascais.jpeg';
-import nice from './images/nice.jpeg';
-import porto from './images/porto.jpeg';
+import { usePhotos } from './PhotoContext';
 
 const Galleries = () => {
     const navigate = useNavigate();
+
+    const { photos } = usePhotos(); // Context에서 photos 가져오기
 
     const handleClick = (image, title, date) => {
         navigate('/info', { state: { image, title, date } });
@@ -15,27 +14,16 @@ const Galleries = () => {
 
     return (
         <div>
-            <div className="image-box">
-                <img
-                    src={cascais}
-                    alt="카스카이스"
-                    onClick={() => handleClick(cascais, "카스카이스", "240707")}
-                />
-            </div>
-            <div className="image-box">
-                <img
-                    src={nice}
-                    alt="니스"
-                    onClick={() => handleClick(nice, "니스", "240619")}
-                />
-            </div>
-            <div className="image-box">
-                <img
-                    src={porto}
-                    alt="포르투"
-                    onClick={() => handleClick(porto, "포르투", "240525")}
-                />
-            </div>
+            <button onClick = {()=>navigate('/add')}>사진 추가하기</button>
+            {photos.map((photo, index) => (
+                <div key={index} className="image-box">
+                    <img
+                        src={photo.imageSrc}
+                        alt={photo.title}
+                        onClick={() => handleClick(photo.imageSrc, photo.title, photo.date)}
+                    />
+                </div>
+            ))}
         </div>
     );
 };
